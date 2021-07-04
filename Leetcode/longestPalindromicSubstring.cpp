@@ -135,3 +135,67 @@ string res = "$#";
 https://leetcode.com/problems/longest-palindromic-substring/
 
 */
+
+// dp solution
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        int n = s.length();
+        if(n ==0 || n ==1 ) return s;
+        int i,j;
+        int start, len=0;
+        
+        // can be solved by manachars algo also
+        // but will use dp solution
+        
+        //bool palin[n][n] = {false};
+        vector<vector<bool>>palin(n, vector<bool>(n,false));
+        for(i=0;i<n;i++) {palin[i][i] = true; start=i,len=1;}
+        
+        for(i=0;i<n-1;i++)
+        {
+            if(s[i] == s[i+1])
+            {
+                palin[i][i+1] = true;
+                start = i, len = 2;
+            }
+        }
+        
+        for(int k=3;k<=n;k++)
+        {
+            for(i=0;i<n-k+1;i++)
+            {
+                j = i + k -1;
+                if(s[i] == s[j] && palin[i+1][j-1])
+                {
+                    
+                    palin[i][j] = true;
+                    if(len < k)
+                    {
+                         start = i;
+                         len = k;
+                    }
+                }
+            }
+        }
+        
+        // for(i=0;i<n;i++)
+        // {
+        //     for(j=i+1;j<n;j++)
+        //     {
+        //         int currLen = j-i+1;
+        //         if(palin[i+1][j-1] && s[i] == s[j])
+        //         {
+        //             palin[i][j] = true;
+        //             if(currLen > len)
+        //             {
+        //                 start = i;
+        //                 len = currLen;
+        //             }
+        //         }
+        //     }
+        // }
+        //cout << " " << start << " " << len << endl;
+        return s.substr(start, len);
+    }
+};
