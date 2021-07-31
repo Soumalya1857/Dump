@@ -20,7 +20,7 @@ https://leetcode.com/problems/partition-to-k-equal-sum-subsets/
 
 Longest Common Subsequence Variant:
 https://leetcode.com/problems/longest-common-subsequence/
-https://leetcode.com/problems/edit-distance/
+https://leetcode.com/problems/edit-distance/  done
 https://leetcode.com/problems/distinct-subsequences/
 https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings/
 
