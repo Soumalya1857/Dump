@@ -117,7 +117,7 @@ public:
     int findPaths(int m, int n, int maxMove, int startRow, int startColumn) {
         
         // dp(i,j,moves) -> no of ways to leave from m,n with max moves moves
-        memset(dp,-1,sizeof(dp));
+        memset(dp,-1,sizeof(dp)); // generally used to assign char but only 0 and -1 can be done by memset as it works byte by byte
         return solve(m,n,maxMove,startRow, startColumn );
     }
 };

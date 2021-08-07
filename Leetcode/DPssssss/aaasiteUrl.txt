@@ -88,3 +88,5 @@ https://leetcode.com/problems/number-of-longest-increasing-subsequence/
 https://leetcode.com/problems/delete-and-earn/
 https://leetcode.com/problems/longest-string-chain/
 
+#my addition
+https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden/
