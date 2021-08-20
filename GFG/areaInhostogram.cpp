@@ -35,6 +35,7 @@ int main()
                 top = s.top();
                 s.pop();
                 area/*assuming s.top()is the min object*/ = a[top] * (s.empty()? i : i-s.top()-1);
+                //cout << a[top] << " " << (s.empty()? i : i-s.top()-1) << " " << s.size() << endl;
                 max_area = max(area,max_area);
             }    
         }
@@ -43,6 +44,7 @@ int main()
             top = s.top();
             s.pop();
             area = a[top] * (s.empty()? i : i-s.top()-1);
+            //cout << "area: " << area << endl;
             max_area = max(area,max_area);       
         }
         cout << max_area << endl;
