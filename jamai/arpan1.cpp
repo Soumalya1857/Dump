@@ -1,7 +1,13 @@
-class Solution {
-public:
-    
-    int calculate(int round, int index/*0 based indexing*/, int people)// given n and index of a person, this calculate no of candies he got
+#include<bits/stdc++.h>
+using namespace std;
+
+struct Result{
+
+    Result() : output1(){};
+    int output1[100];
+};
+
+int calculate(int round, int index/*0 based indexing*/, int people)// given n and index of a person, this calculate no of candies he got
     {
         // index s are of n+1
          if(round<0) return 0;
@@ -21,6 +27,9 @@ public:
         int round = persons/num_people;
         
         vector<int>ans(num_people,0);
+        // int ans[num_people];
+        // for(int i=0;i<num_people;i++) ans[i] = 0;
+
         
         for(int index=0;index<num_people;index++)
         {
@@ -40,8 +49,29 @@ public:
         
         return ans;
     }
-};
 
-/*
-https://leetcode.com/explore/challenge/card/august-leetcoding-challenge/551/week-3-august-15th-august-21st/3427/
-*/
+    Result toffees(int input1, int input2)
+    {
+        vector<int> ans = distributees(input1, input2);
+
+        struct Result myAns;
+        int i=0;
+        for(auto x: ans)
+        {
+            myAns.output1[i++] = x;
+        }
+
+        return myAns;
+    }
+
+
+    int main()
+    {
+        Result boom = toffees(7,4);
+        for(int i=0; i<100; i++)
+        {
+            if(boom.output1[i] == '\0') break;
+            cout << boom.output1[i] << " ";
+        }
+        return 0;
+    }

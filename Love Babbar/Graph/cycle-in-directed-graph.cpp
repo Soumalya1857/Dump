@@ -17,11 +17,12 @@ class Solution {
                     return true;
             }
             else if(dfsVisited[x]) return true; // x previously visited and my dfs also visits this => cycle
+                                                // visited by dfs and also by dfsVisited => cycle
         }
     
         
         
-        dfsVisited[node] = false;
+        dfsVisited[node] = false; // backtrack
         return false;
             
         
