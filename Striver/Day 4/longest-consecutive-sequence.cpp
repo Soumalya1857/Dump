@@ -32,6 +32,12 @@ public:
 };
 
 // https://leetcode.com/problems/longest-consecutive-sequence/submissions/
+// https://www.youtube.com/watch?v=qgizvmgeyUM&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=22
+
+// intuition is add all the number to the map
+// then iterate over arr, checking if the prev number exists or not
+// if doesn't => means thats the potential start of the sequence
+// then check the streak by increasing the number and checking if it exists or not
 
 // o(n) java solution
 class Solution {

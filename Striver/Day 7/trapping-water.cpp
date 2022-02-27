@@ -111,3 +111,37 @@ public:
 // prob: https://leetcode.com/problems/trapping-rain-water/
 // soln: https://www.geeksforgeeks.org/trapping-rain-water/
 // youtube: https://www.youtube.com/watch?v=m18Hntz4go8&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=42
+
+
+
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int size = height.size();
+        vector<int> lmax(size, -1), rmax(size,-1);
+        
+        int left = -1, right = -1;
+        for(int i=0; i<size;i++){
+            if(left > height[i]) lmax[i] = left;
+            else{
+                left = height[i];
+                lmax[i] = -1;
+            }
+        }
+        
+        for(int i=size-1; i>=0;i--){
+            if(right > height[i]) rmax[i] = right;
+            else{
+                right = height[i];
+                rmax[i] = -1;
+            }
+        }
+        
+        int ans = 0;
+        for(int i=0;i<size; i++){
+            ans += max((min(lmax[i], rmax[i])-height[i]),0);
+        }
+        
+        return ans;
+    }
+};
