@@ -46,3 +46,27 @@ public:
 
 // try calculating more lower and upper bound
 // https://leetcode.com/problems/maximum-split-of-positive-even-integers/
+
+
+// better solution
+class Solution {
+public:
+    vector<long long> maximumEvenSplit(long long finalSum) {
+        vector<long long> splits;
+        if (finalSum % 2LL == 1) return splits;
+        long long sum = 0;
+        for (long long i = 2; sum + i <= finalSum; i+=2) {
+            splits.push_back(i);
+            sum += i;
+        }
+        if (sum != finalSum) {
+            long long diff = finalSum - sum;
+            if (splits.empty()) {
+                splits.push_back(diff);
+            } else {
+                splits.back() = splits.back() + diff;
+            }
+        }
+        return splits;
+    }
+};
