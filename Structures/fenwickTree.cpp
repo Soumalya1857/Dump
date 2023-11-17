@@ -3,7 +3,8 @@ using namespace std;
 
 
 
-void updateTree(int tree[], int n/*length of the tree arr*/, int index,/*position to be changed*/int val)
+void updateTree(int tree[], int n/*length of the tree arr*/, 
+                        int index,/*position to be changed*/int val)
 {
     while(index <= n)
     {

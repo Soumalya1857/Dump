@@ -18,3 +18,5 @@ public:
 };
 // soln: https://leetcode.com/problems/jump-game/submissions/
 // https://www.youtube.com/watch?v=Zb4eRjuPHbM
+
+// https://leetcode.com/problems/jump-game/solutions/2375320/interview-scenario-recursion-memoization-dp-greedy/
