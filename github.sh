@@ -1,12 +1,12 @@
 #!/bin/bash
 
-echo "Adding all changes to github...."
+echo -e "********** Adding all changes to github **********\n"
 git add .
 
-echo "Committing all changes with message...."
+echo -e "\n********** Committing all changes with message **********\n"
 git commit -m "changes dumped"
 
-echo "Pushing changes to origin/master of dump..."
+echo -e "\n********** Pushing changes to origin/master of dump **********\n"
 git push origin master
 
-echo "Done...happy coding !!!"
+echo -e "\n********** Done...happy coding !!! **********"
