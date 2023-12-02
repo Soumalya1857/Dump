@@ -36,3 +36,28 @@ public:
         // Q=> https://leetcode.com/problems/house-robber
     }
 };
+
+// another solution 
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        vector<vector<int>> dp(nums.size()+1, vector<int>(2,-1));
+        return solve(nums, 0, false, dp);
+    }
+
+    int solve(vector<int> &nums, int currHouse, bool isPreviousRobbed, vector<vector<int>> &dp){
+        if(currHouse > nums.size()-1)
+            return 0;
+
+        if(dp[currHouse][isPreviousRobbed] != -1) 
+            return dp[currHouse][isPreviousRobbed];
+
+        if(isPreviousRobbed){
+            if(dp[currHouse + 1][0] != -1 ) return dp[currHouse+1][0];
+            return dp[currHouse+1][0] = solve(nums, currHouse+1, false, dp);
+        }
+
+        return dp[currHouse][isPreviousRobbed] = max(nums[currHouse] + solve(nums, currHouse+1, true, dp), 
+                                        solve(nums, currHouse+1, false, dp));
+    }
+};
