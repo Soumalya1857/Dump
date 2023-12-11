@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo -e "********** Fetching changes from github **********\n"
+git pull origin master
+
 echo -e "********** Adding all changes to github **********\n"
 git add .
 
