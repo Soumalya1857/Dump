@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Striver/Striver.iml" filepath="$PROJECT_DIR$/Striver/Striver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TrialSync/TrialSync.iml" filepath="$PROJECT_DIR$/TrialSync/TrialSync.iml" />
       <module fileurl="file://$PROJECT_DIR$/interview.iml" filepath="$PROJECT_DIR$/interview.iml" />
     </modules>
   </component>
