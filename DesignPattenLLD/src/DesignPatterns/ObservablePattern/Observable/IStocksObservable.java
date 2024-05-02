@@ -1,6 +1,6 @@
-package ObservablePattern.Observable;
+package DesignPatterns.ObservablePattern.Observable;
 
-import ObservablePattern.Observer.IObserver;
+import DesignPatterns.ObservablePattern.Observer.IObserver;
 
 public interface IStocksObservable{
 

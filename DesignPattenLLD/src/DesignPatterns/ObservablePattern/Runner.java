@@ -1,10 +1,10 @@
-package ObservablePattern;
+package DesignPatterns.ObservablePattern;
 
-import ObservablePattern.Observable.IStocksObservable;
-import ObservablePattern.Observable.IphoneStockObservable;
-import ObservablePattern.Observer.EmailNotificationAlertObserver;
-import ObservablePattern.Observer.IObserver;
-import ObservablePattern.Observer.NotificationAlertObserver;
+import DesignPatterns.ObservablePattern.Observable.IStocksObservable;
+import DesignPatterns.ObservablePattern.Observable.IphoneStockObservable;
+import DesignPatterns.ObservablePattern.Observer.EmailNotificationAlertObserver;
+import DesignPatterns.ObservablePattern.Observer.IObserver;
+import DesignPatterns.ObservablePattern.Observer.NotificationAlertObserver;
 
 public class Runner {
     /*https://www.youtube.com/watch?v=Ep9_Zcgst3U&list=PL6W8uoQQ2c61X_9e6Net0WdYZidm7zooW&index=5*/

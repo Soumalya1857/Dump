@@ -1,6 +1,6 @@
-package StrategyPattern.Vechicle;
+package DesignPatterns.StrategyPattern.Vechicle;
 
-import StrategyPattern.DriveStrategy.IDriveStrategy;
+import DesignPatterns.StrategyPattern.DriveStrategy.IDriveStrategy;
 
 abstract public class BaseVehicle implements IVehicle{
 

@@ -1,4 +1,4 @@
-package ObservablePattern.Observer;
+package DesignPatterns.ObservablePattern.Observer;
 
 public interface IObserver {
 

@@ -1,6 +1,6 @@
-package ObservablePattern.Observer;
+package DesignPatterns.ObservablePattern.Observer;
 
-import ObservablePattern.Observable.IStocksObservable;
+import DesignPatterns.ObservablePattern.Observable.IStocksObservable;
 
 public class EmailNotificationAlertObserver implements IObserver{
 

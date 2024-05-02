@@ -1,4 +1,4 @@
-package StrategyPattern.Vechicle;
+package DesignPatterns.StrategyPattern.Vechicle;
 
 public interface IVehicle {
 

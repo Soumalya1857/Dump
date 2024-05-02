@@ -1,4 +1,4 @@
-package StrategyPattern.DriveStrategy;
+package DesignPatterns.StrategyPattern.DriveStrategy;
 
 public class TruckDriveStategy implements IDriveStrategy{
     @Override

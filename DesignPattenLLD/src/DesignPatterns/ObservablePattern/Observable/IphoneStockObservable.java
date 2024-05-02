@@ -1,6 +1,6 @@
-package ObservablePattern.Observable;
+package DesignPatterns.ObservablePattern.Observable;
 
-import ObservablePattern.Observer.IObserver;
+import DesignPatterns.ObservablePattern.Observer.IObserver;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +35,7 @@ public class IphoneStockObservable implements IStocksObservable{
     @Override
     public void addStocks(int data) {
         if(stockCount == 0){
-            this.stockCount += data;
+            this.stockCount = data;
             notifyAllObserver(); // if the stock count was 0 and new stocks are added call all the subscribers
         }else{
             this.stockCount += data;
