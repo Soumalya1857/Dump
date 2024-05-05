@@ -8,8 +8,8 @@ import DesignPatterns.StrategyPattern.Vechicle.SportsVehicle;
 import DesignPatterns.StrategyPattern.Vechicle.TruckVehicle;
 
 public class Runner {
-    /*https://refactoring.guru/design-patterns/strategy*/
-    /*https://youtu.be/u8DttUrXtEw?si=8SLezh-kmt3e7imb*/
+    //https://refactoring.guru/design-patterns/strategy
+    //https://youtu.be/u8DttUrXtEw?si=8SLezh-kmt3e7imb
 
     public static void main(String[] args) {
         IDriveStrategy sportsStrategy = new SportsDriveStrategy();
