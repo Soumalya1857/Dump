@@ -21,7 +21,7 @@ public:
             
             // delete last elemet of window
             auto it = s.find(nums[i-k]); // gives first occurance of the element,
-                                        // so even if we have duplicate elemnts we will not be deleting all 
+                                        // so even if we have duplicate elemnts we will not be deleting all
             s.erase(it);
             
             ans.push_back(*s.rbegin());
@@ -73,3 +73,42 @@ public:
 
 // prb: https://leetcode.com/problems/sliding-window-maximum/
 // soln: https://www.youtube.com/watch?v=CZQGRp93K4k&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=85
+
+
+
+
+
+
+
+// ====================================== accepted solution using deque
+class Solution {
+public:
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+
+
+        // deque approach
+        // we will only put indexes in deque and we will try to maintain a decreasing order
+
+        deque<int> dq;
+        vector<int> ans;
+
+        for(int i=0; i<nums.size(); i++){
+
+            while(!dq.empty() && dq.front() <= (i-k)){
+                dq.pop_front();
+            }
+
+            while(!dq.empty() && nums[i] >=  nums[dq.back()]){
+                dq.pop_back();
+            }
+
+            dq.push_back(i);
+
+            if(i>=k-1){
+                ans.push_back(nums[dq.front()]);
+            }
+        }
+
+        return ans;
+    }
+};
