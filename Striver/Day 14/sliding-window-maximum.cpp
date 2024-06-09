@@ -20,7 +20,8 @@ public:
             s.insert(nums[i]);
             
             // delete last elemet of window
-            auto it = s.find(nums[i-k]);
+            auto it = s.find(nums[i-k]); // gives first occurance of the element,
+                                        // so even if we have duplicate elemnts we will not be deleting all 
             s.erase(it);
             
             ans.push_back(*s.rbegin());
