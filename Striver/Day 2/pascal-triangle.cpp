@@ -39,3 +39,6 @@ public:
 
 // ques: https://leetcode.com/problems/pascals-triangle/
 // youtube: https://www.youtube.com/watch?v=6FLvhQjZqvM&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=8
+
+// given R and C the value at that place would be (R-1) C (C-1)
+// good explanation: https://www.youtube.com/watch?v=bR7mQgwQ_o8&t=0s
