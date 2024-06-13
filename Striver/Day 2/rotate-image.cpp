@@ -43,3 +43,5 @@ public:
 };
 
 // ques: https://leetcode.com/problems/rotate-image/submissions/
+// https://www.youtube.com/watch?v=Y72QeX0Efxw&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=13
+// https://www.youtube.com/watch?v=Z0R2u6gd3GU&t=0s

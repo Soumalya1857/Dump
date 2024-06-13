@@ -55,4 +55,46 @@ public:
 };
 
 // prob: https://leetcode.com/problems/next-permutation/
-// best solution: https://www.youtube.com/watch?v=LuLCLgMElus&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=10 
+// best solution: https://www.youtube.com/watch?v=LuLCLgMElus&list=PLgUwDviBIf0rPG3Ictpu74YWBQ1CaBkm2&index=10
+
+// Great video: https://www.youtube.com/watch?v=JDOXKqF60RQ&t=0s
+
+
+
+class Solution {
+public:
+
+	// step1; find a break point from last
+		// strp2: the number in increasing zone just greater than breakpoint
+		// swap the numbers
+// sort/ reverse the array after the swapping point
+
+  void nextPermutation(vector<int> &arr){
+
+	int n = arr.size();
+
+	int index = -1;
+	for(int i=n-2; i>=0; i--){
+		if(arr[i] < arr[i+1]){
+			index = i;
+			break;
+}
+}
+
+if(index == -1){
+	reverse(arr.begin(), arr.end());
+	return;
+}
+
+
+for(int i=n-1; i>=0; i--){
+	if(arr[index] < arr[i]){
+		swap(arr[index], arr[i]);
+		break;
+}
+}
+
+reverse(arr.begin()+index+1, arr.end());
+return;
+}
+};
