@@ -1,3 +1,40 @@
+ // better solution O(n)
+
+int maxLen(int A[], int n)
+{
+
+    // prefix sum then find the prefixes in a smaller subarray
+    int len = -1;
+    int prefix[n];
+    prefix[0] = A[0];
+
+    for(int i=1;i<n;i++)
+    {
+        prefix[i] = prefix[i-1]+A[i];
+        if(prefix[i] == 0) len=i+1;
+    }
+
+
+
+    unordered_map<int,int> mp;
+    for(int i =0; i<n;i++)
+    {
+        if(mp.find(prefix[i]) == mp.end())
+        {
+           mp[prefix[i]] = i;
+        }
+        else
+        {
+            int index = mp[prefix[i]];
+            len = max(i-index, len);
+        }
+    }
+
+    return len == -1 ? 0 : len;
+}
+
+
+
 class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
@@ -65,37 +102,4 @@ class Solution {
 
 
 
- // better solution O(n)
 
-int maxLen(int A[], int n)
-{
-    
-    // prefix sum then find the prefixes in a smaller subarray
-    int len = -1;
-    int prefix[n];
-    prefix[0] = A[0];
-    
-    for(int i=1;i<n;i++)
-    {
-        prefix[i] = prefix[i-1]+A[i];
-        if(prefix[i] == 0) len=i+1;
-    }
-    
-    
-        
-    unordered_map<int,int> mp;
-    for(int i =0; i<n;i++)
-    {
-        if(mp.find(prefix[i]) == mp.end())
-        {
-           mp[prefix[i]] = i;
-        }
-        else
-        {
-            int index = mp[prefix[i]];
-            len = max(i-index, len);
-        }
-    }
-    
-    return len == -1 ? 0 : len;
-}

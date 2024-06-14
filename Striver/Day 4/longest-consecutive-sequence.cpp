@@ -1,3 +1,42 @@
+// o(n) solutioin
+
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        if(nums.size() == 0) return 0;
+        unordered_map<int,bool> mp;
+
+        int count = 0, maxCount = 1;
+
+        for(int i=0; i<nums.size(); i++){
+            mp[nums[i]] = true;
+        }
+
+
+        for(int i=0; i<nums.size(); i++){
+            if(mp.find(nums[i]-1) != mp.end()){
+                continue;
+            }
+
+
+            // nums[i] can be a starting point
+            int val = nums[i];
+            int count = 1;
+
+            while(mp.find(val+1) != mp.end()){
+                count++;
+                maxCount = max(count, maxCount);
+                val = val+1;
+            }
+        }
+
+        return maxCount;
+    }
+};
+
+// https://leetcode.com/problems/longest-consecutive-sequence/submissions/1286977502/
+
+
 // o(nlogn) solution
 
 class Solution {
@@ -33,6 +72,8 @@ public:
 
 // https://leetcode.com/problems/longest-consecutive-sequence/submissions/
 // https://www.youtube.com/watch?v=qgizvmgeyUM&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=22
+
+// https://www.youtube.com/watch?v=oO5uLE7EUlM&t=0s
 
 // intuition is add all the number to the map
 // then iterate over arr, checking if the prev number exists or not

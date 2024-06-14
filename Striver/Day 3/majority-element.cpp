@@ -16,8 +16,15 @@ public:
             if(candidate == num) count++; // ++ if majority found
             else count--;                // -- if minority found
         }
+
+        // traverse the array agian to check candidate is actually the majority one
+        // necessary if noone in the array is majority
+        count = 0;
+        for(int num : nums){
+            if(num == candidate) count++;
+        }
         
-        return candidate;
+        return count > nums.size()/2 ? candidate : -1;
     }
 };
 

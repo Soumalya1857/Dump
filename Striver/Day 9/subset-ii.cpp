@@ -1,3 +1,5 @@
+// general solution :https://leetcode.com/problems/combination-sum/solutions/16502/a-general-approach-to-backtracking-questions-in-java-subsets-permutations-combination-sum-palindrome-partitioning/
+
 class Solution {
 public:
     
@@ -90,3 +92,35 @@ public:
 };
 
 // solution: https://www.youtube.com/watch?v=RIn3gOkbhQE&list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma&index=54
+
+
+
+class Solution {
+public:
+
+    void solve(vector<int>& nums, int index, vector<int> subset, vector<vector<int>>& ans){
+        ans.push_back(subset);
+
+        if(index == nums.size()){
+            return;
+        }
+
+
+        for(int i=index; i<nums.size(); i++){
+            if(i == index || (i!=index && nums[i] != nums[i-1])){
+                subset.push_back(nums[i]);
+                solve(nums, i+1, subset, ans);
+                subset.pop_back();
+            }
+        }
+    }
+    vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        vector<vector<int>> ans;
+        vector<int> subset;
+        sort(nums.begin(), nums.end());
+        solve(nums, 0, subset, ans);
+
+        return ans;
+
+    }
+};
