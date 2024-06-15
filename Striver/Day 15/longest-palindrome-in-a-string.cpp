@@ -1,5 +1,7 @@
 class Solution {
   public:
+
+  // https://youtu.be/UflHuQj6MVA?si=p5gvep2DPdN01juH
     string longestPalin (string s) {
         // code here
         
@@ -50,6 +52,49 @@ class Solution {
         return s.substr(start, maxLen);
     }
 };
+// https://youtu.be/wuOOOATz_IA?si=yQH3Liwd-gYKWljL
+
 
 // there is a linear solution manachars algorithm
-// 
+// https://youtu.be/V-sEwsca1ak?si=GtA6x0xBZTirD_oA
+
+
+// brute force ....check every substring
+
+// check every substring
+// https://www.geeksforgeeks.org/longest-palindromic-substring/
+class Solution{
+    private:
+
+        bool isPalindrome(string s, int left, int right){
+            while(left<right){
+                if(s[left++] != s[right--])
+                    return false;
+            }
+
+            return true;
+        }
+    public:
+
+        int longestPalindrome(string s){
+            int maxLen = 1;
+            int startIndex = -1;
+
+            for(int i=0; i<s.length();i++){
+                for(int j=i+1; j<s.length(); j++){
+                    bool flag = isPalindrome(s, i, j);
+                    if(flag && (j-i+1 > maxLen)){
+                        maxLen = j-i+1;
+                        startIndex = i;
+                    }
+                }
+            }
+
+            return maxLen == 1 ? {0,1} : {startIndex, maxLen};
+        }
+};
+
+
+// recursive approach
+// https://www.geeksforgeeks.org/length-of-longest-palindromic-sub-string-recursion/
+
