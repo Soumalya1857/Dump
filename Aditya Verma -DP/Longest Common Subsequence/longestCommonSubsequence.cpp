@@ -50,3 +50,24 @@ int main()
     cout << LCS(a,b,a.length(),b.length()) << endl;
     return 0;
 }
+
+// ========================================================
+class Solution{
+    public:
+
+        int solve(string &s1, string &s2, int i, int j){
+            if(i<0 || j<0){
+                return 0;
+            }
+
+            if(s1[i] == s2[j]){
+                return 1+solve(s1, s2, i-1, j-1);
+            }
+
+            return max(solve(s1, s2, i-1, j), solve(s1, s2, i, j-1));
+        }
+
+        int longestCommonSubsequence(string s1, string s2){
+            return solve(s1, s2, s1.length()-1, s2.length()-1);
+        }
+};
