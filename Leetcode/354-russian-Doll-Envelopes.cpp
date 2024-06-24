@@ -1,5 +1,6 @@
 class Solution {
 public:
+// https://leetcode.com/problems/russian-doll-envelopes/solutions/82763/java-nlogn-solution-with-explanation/
     
     //struct compare
    static bool compare(const vector<int>&a, const vector<int>&b)

@@ -5,7 +5,7 @@ public:
     // if the element exists then no need of any operations
 
     // N^2 solution and TLE
-    
+
     int minOperations(vector<int>& nums) {
         int size = nums.size();
         sort(nums.begin(), nums.end());
