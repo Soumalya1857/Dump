@@ -3,10 +3,10 @@ class ComparePQ{
 
     public:
         bool operator()(const pair<int,int> &a, const pair<int,int> &b){
-        if(a.first < b.first){
+        if(a.first > b.first){
             return true;
         }else if(a.first == b.first){
-            return a.second < b.second;
+            return a.second > b.second;
         }
 
         return false;
@@ -52,6 +52,10 @@ public:
 
         sort(engg.begin(), engg.end(), compare); // efficiency => descending
 
+        // for(auto num: engg){
+        //     cout << num.first << " " << num.second << endl;
+        // }
+
 
         priority_queue<pair<int,int>, vector<pair<int,int>>, ComparePQ> pq;
 
@@ -63,25 +67,36 @@ public:
         for(int i=0; i<k; i++){
             currSumOfSpeed += engg[i].first;
             currEfficiency = min(currEfficiency, engg[i].second);
+            maxPerformance = max( maxPerformance, (int)((long long)(currSumOfSpeed)*(long long)currEfficiency)%mod ); // atmost
+            pq.push(engg[i]);
         }
 
-        maxPerformance = max( maxPerformance, ((currSumOfSpeed)*currEfficiency)%mod );
+        maxPerformance = max( maxPerformance, (int)((long long)(currSumOfSpeed)*(long long)currEfficiency)%mod );
 
 
         for(int i=k; i<n; i++){
             pair<int,int> top = pq.top();
             pq.pop(); // removed least speed person
 
+            //cout << "top: " << top.first << " " << top.second << endl;
+
             currSumOfSpeed -= top.first;
+
+            pq.push(engg[i]);
 
             // curr engg to go in
             currEfficiency = engg[i].second;
             currSumOfSpeed += engg[i].first;
 
-            maxPerformance = max( maxPerformance, ((currSumOfSpeed)*currEfficiency)%mod );
-
-            pq.push(engg[i]);
+            maxPerformance = max( maxPerformance, (int)((long long)(currSumOfSpeed)*(long long)currEfficiency)%mod );
         }
+
+        // cout << " ==========================" << endl;
+
+        // while(!pq.empty()){
+        //     cout << pq.top().first << " " << pq.top().second << endl;
+        //     pq.pop();
+        // }
 
         return maxPerformance;
 
