@@ -24,3 +24,24 @@ public:
     
 };
 // https://leetcode.com/problems/maximum-xor-after-operations/
+
+
+// another solution
+class Solution {
+public:
+    int maximumXOR(vector<int>& nums) {
+        int ans = 0;
+
+        for(int bit=31; bit>=0; bit--){
+
+            for(int j=0; j<nums.size(); j++){
+                if(nums[j] & (1<<bit)){
+                    ans = ans | (1<<bit);
+                    break;
+                }
+            }
+        }
+
+        return ans;
+    }
+};
