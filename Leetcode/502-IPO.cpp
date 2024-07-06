@@ -1,5 +1,16 @@
 // https://leetcode.com/problems/ipo/
 // https://www.youtube.com/watch?v=1IUzNJ6TPEM
+
+/*
+This solution is incorrect because the order in which the projects are completed matters.
+This can be seen in the following test case:
+
+k = 2, w = 0, profits = [1,2,3], capital = [1,1,0]
+
+The first project taken on must be the one at the 2nd index because it is the only once with capital <= w.
+ However all recursive calls increment I by 1 meaning that it the projects at 0 and 1 will not be considered
+ even though we now have enough capital to take either on.
+*/
 class Solution {
     private:
         int solve(vector<int>& capitals, vector<int> &profits, int currCaptial, int index, int k, vector<vector<int>> &dp, int &maxi){
