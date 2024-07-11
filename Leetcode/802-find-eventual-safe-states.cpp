@@ -1,3 +1,5 @@
+
+// https://leetcode.com/problems/find-eventual-safe-states/description/
 class Solution {
 public:
 
@@ -7,13 +9,13 @@ public:
         }
 
         visited[index] = true;
-        bool localDicision = true;
+        bool localDecision = true;
         for(int i : graph[index]){
-            localDicision = localDicision & isSafe(graph, visited, safe, i);
+            localDecision = localDecision & isSafe(graph, visited, safe, i);
         }
 
-        // cout << "safe " << index << ": " << localDicision << endl;
-        return safe[index] = localDicision;
+        // cout << "safe " << index << ": " << localDecision << endl;
+        return safe[index] = localDecision;
     }
 
     vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
@@ -78,3 +80,54 @@ vector<int> eventualSafeNodes(vector<vector<int>>& G) {
     }
     return ans;
 }
+
+// ==================================
+
+class Solution {
+
+private:
+    bool dfs(vector<vector<int>> &adj, int node, vector<bool> &visited, vector<bool> &pathVisited, vector<int> &safeStates){
+        visited[node] = true;
+        pathVisited[node] = true;
+
+
+        for(int nei: adj[node]){
+            if(!visited[nei]){
+                if(dfs(adj, nei, visited, pathVisited, safeStates) == true){
+                    return true;
+                }
+            } // visited is true
+            else if(pathVisited[nei]){
+                return true;
+            }
+        }
+
+        // no loop detected for node
+        safeStates.push_back(node);
+        pathVisited[node] = false;
+
+        return false;
+    }
+public:
+    vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
+        int n = graph.size();
+
+        // if loop is detected, all the elements of the loop will not be part of safe state
+
+        vector<bool> visited(n, false);
+        vector<bool> pathVisited(n, false);
+
+        vector<int> safeStates;
+
+        for(int i=0; i<n; i++){
+            if(!visited[i]){
+                dfs(graph, i, visited, pathVisited, safeStates);
+            }
+
+        }
+
+        sort(safeStates.begin(), safeStates.end());
+
+        return safeStates;
+    }
+};

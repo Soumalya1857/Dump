@@ -31,7 +31,7 @@ public:
         traversal.push_back(root->val);
         bool right = inorder(root->right, traversal);
 
-        return isBST && left && right;
+        return isBST && left && right; // this is good enough for me
     }
     bool isValidBST(TreeNode* root) {
         // if(root == NULL)
@@ -174,3 +174,28 @@ public:
 };
 
 // solution: https://www.youtube.com/watch?v=s6ATEkipzow
+
+
+// =========================================
+
+
+bool isBST(TreeNode* root){
+    if(root == NULL){
+        return true;
+    }
+
+
+    bool isBST = true;
+
+    if(root->left != NULL){
+        isBST = root->left->val < root->val;
+    }
+
+    if(root->right != NULL){
+        isBST = root->right-> val > root->val;
+    }
+
+
+    return isBST && isBST(root->left) && isBST(root->right);
+
+}

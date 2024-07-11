@@ -55,3 +55,16 @@ public:
 };
 
 // https://leetcode.com/problems/sum-root-to-leaf-numbers/
+
+// better solution
+public int sumNumbers(TreeNode root) {
+	return sum(root, 0);
+}
+
+public int sum(TreeNode n, int s){
+	if (n == null) return 0;
+	if (n.right == null && n.left == null) return s*10 + n.val;
+	return sum(n.left, s*10 + n.val) + sum(n.right, s*10 + n.val);
+}
+
+//https://leetcode.com/problems/sum-root-to-leaf-numbers/solutions/41363/short-java-solution-recursion/
