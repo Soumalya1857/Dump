@@ -12,7 +12,7 @@
 class Solution {
 public:
     bool flipEquiv(TreeNode* root1, TreeNode* root2) {
-        if(root1 == root2) return true;
+        if(root1 == root2) return true; // includes NULL also
 
         if(root1 == NULL || root2 == NULL || root1->val != root2->val){
             return false;

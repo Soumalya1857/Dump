@@ -62,7 +62,7 @@ public int sumNumbers(TreeNode root) {
 }
 
 public int sum(TreeNode n, int s){
-	if (n == null) return 0;
+	if (n == null) return 0; // return s will not work here as for a leaf node it will return 2S in total
 	if (n.right == null && n.left == null) return s*10 + n.val;
 	return sum(n.left, s*10 + n.val) + sum(n.right, s*10 + n.val);
 }

@@ -2,6 +2,9 @@ class Solution {
 // TLE here-----going to every node and start BFS
 // think of iterative BFS here
 // kind of dp on bfs
+
+// instead of starting from 0's,
+// start from 1's and go untill you visit all the nodes...return the number of steps you have taken
 private:
     int dx[4] = {0,0,1,-1};
     int dy[4] = {1,-1,0,0};
@@ -199,7 +202,7 @@ public:
         return maxDist;
     }
 };
-
+// ================================================================================
 // accepted soluton
 class Solution {
 

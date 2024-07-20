@@ -23,6 +23,7 @@ public:
         }
 
         // iterate over the map and try to build order
+        //map ensures sorted order of keys
         //vector<vector<int>> allocation(totalGroups, vector<int>());
 
         for(auto it=freq.begin(); it!=freq.end(); it++){

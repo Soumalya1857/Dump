@@ -39,6 +39,7 @@ public:
 
             if(curr.x == 0 && curr.y == 0){
                 minHealth = min(minHealth, curr.health);
+                continue;
             }
 
             for(int i=0; i<2; i++){
