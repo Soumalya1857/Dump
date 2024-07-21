@@ -1,5 +1,4 @@
-
-class RandomizedSet {
+class RandomizedCollection {
 private:
 
     unordered_map<int, unordered_map<int, bool>> mp; // val , {index, true}
@@ -8,7 +7,7 @@ private:
 
 
 public:
-    RandomizedSet() {
+    RandomizedCollection() {
         srand(100);
     }
 
@@ -20,12 +19,13 @@ public:
 
     bool insert(int val) {
         // insert in mp
-        if(mp[val].size() > 0) return false;
+        //if(mp[val].size() > 0) return false;
+        int initialSize = mp[val].size();
 
         vals.push_back(val);
         mp[val][vals.size()-1] = true; // store the index for that particular value
 
-        return true;
+        return initialSize > 0 ? false : true;
     }
 
     bool remove(int val) {
@@ -47,8 +47,8 @@ public:
             // update index of swapped index val
             int newVal = vals[index];
 
-            mp[newVal].erase(vals.size()-1);
-            mp[newVal][index] = true;
+            mp[newVal].erase(vals.size()-1); // prev index vals.size() - 1
+            mp[newVal][index] = true; // current index = index
 
             vals.pop_back(); // element removed
         }else{
@@ -81,4 +81,44 @@ public:
 
 
 
+ // https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/solutions/85541/c-128ms-solution-real-o-1-solution/
+  class RandomizedCollection {
+  public:
+      /** Initialize your data structure here. */
+      RandomizedCollection() {
 
+      }
+
+      /** Inserts a value to the collection. Returns true if the collection did not already contain the specified element. */
+      bool insert(int val) {
+          auto result = m.find(val) == m.end();
+
+          m[val].push_back(nums.size());
+          nums.push_back(pair<int, int>(val, m[val].size() - 1));
+
+          return result;
+      }
+
+      /** Removes a value from the collection. Returns true if the collection contained the specified element. */
+      bool remove(int val) {
+          auto result = m.find(val) != m.end();
+          if(result)
+          {
+              auto last = nums.back();
+              m[last.first][last.second] = m[val].back();
+              nums[m[val].back()] = last;
+              m[val].pop_back();
+              if(m[val].empty()) m.erase(val);
+              nums.pop_back();
+          }
+          return result;
+      }
+
+      /** Get a random element from the collection. */
+      int getRandom() {
+          return nums[rand() % nums.size()].first;
+      }
+  private:
+      vector<pair<int, int>> nums;
+      unordered_map<int, vector<int>> m;
+  };
