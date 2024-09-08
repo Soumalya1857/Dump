@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/MultiThreading/MultiThreading.iml" filepath="$PROJECT_DIR$/MultiThreading/MultiThreading.iml" />
       <module fileurl="file://$PROJECT_DIR$/Striver/Striver.iml" filepath="$PROJECT_DIR$/Striver/Striver.iml" />
       <module fileurl="file://$PROJECT_DIR$/TrialSync/TrialSync.iml" filepath="$PROJECT_DIR$/TrialSync/TrialSync.iml" />
       <module fileurl="file://$PROJECT_DIR$/interview.iml" filepath="$PROJECT_DIR$/interview.iml" />
