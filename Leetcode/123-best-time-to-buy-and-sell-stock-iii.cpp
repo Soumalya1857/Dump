@@ -24,6 +24,8 @@ public:
 // https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/
 // one optimization is use size*4 dp instead of size * 2 * 2
 
+// general solution: https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/solutions/108870/most-consistent-ways-of-dealing-with-the-series-of-stock-problems/
+
 
 
 // o(N) solution

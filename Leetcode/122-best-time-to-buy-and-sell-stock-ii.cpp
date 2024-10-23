@@ -26,3 +26,4 @@ public:
 // https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/solutions/39420/three-lines-in-c-with-explanation/ <= o(N) solution
 
 
+// general solution: https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/solutions/108870/most-consistent-ways-of-dealing-with-the-series-of-stock-problems/
