@@ -2,7 +2,16 @@
 
 class Solution {
 public:
-   // add isNeighbor method here
+    bool isNeighbor(string s1, string s2){
+        int count = 0;
+        for(int i=0; i<s1.length(); i++){
+            if(s1[i] != s2[i]) count++;
+
+            if(count > 1) return false;
+        }
+
+        return count == 1 ? true : false;
+    }
 
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
         map<string, vector<string>> adj;
