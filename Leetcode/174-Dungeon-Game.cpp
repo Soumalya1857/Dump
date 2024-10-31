@@ -11,7 +11,9 @@ struct State{
 };
 class Solution {
 private:
-    // add isValid method
+     bool isValid(int row, int col, int x, int y){
+        return x>=0 && x<row && y>=0 && y<col;
+    }
     
 public:
     int calculateMinimumHP(vector<vector<int>>& dungeon) {
