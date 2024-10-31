@@ -23,7 +23,9 @@ class Node{
             return this->children[ch-'a'];
         }
 
-        // add setEndOfWord method here
+        void setEndOfWord(){
+            this->isEndOfWord = true;
+        }
 
          bool getEndOfWord(){
             return this->isEndOfWord;
