@@ -25,7 +25,9 @@ class Node{
 
         // add setEndOfWord method here
 
-        // add getEndOfWord method here
+         bool getEndOfWord(){
+            return this->isEndOfWord;
+        }
        
 };
 
