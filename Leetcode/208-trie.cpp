@@ -23,13 +23,10 @@ class Node{
             return this->children[ch-'a'];
         }
 
-        void setEndOfWord(){
-            this->isEndOfWord = true;
-        }
+        // add setEndOfWord method here
 
-        bool getEndOfWord(){
-            return this->isEndOfWord;
-        }
+        // add getEndOfWord method here
+       
 };
 
 class Trie {
