@@ -1,50 +1,87 @@
------------------------------------------
-RCV starts.....
-{'verbose': False, 'random_state': 42, 'min_data_in_leaf': 200, 'loss_function': 'Logloss', 'learning_rate': 0.05, 'iterations': 1000, 'eval_metric': 'AUC', 'depth': 4}
-AUC Score: 0.8234478524468547
------------------------------------------
------------------------------------------
-RCV starts.....
-{'verbose': False, 'random_state': 42, 'min_data_in_leaf': 50, 'loss_function': 'Logloss', 'learning_rate': 0.1, 'iterations': 1000, 'eval_metric': 'AUC', 'depth': 3}
-AUC Score: 0.8146772914481594
------------------------------------------
------------------------------------------
-RCV starts.....
-{'verbose': False, 'random_state': 42, 'min_data_in_leaf': 100, 'loss_function': 'Logloss', 'learning_rate': 0.1, 'iterations': 1000, 'eval_metric': 'AUC', 'depth': 3}
-AUC Score: 0.7913343224783198
------------------------------------------
------------------------------------------
-RCV starts.....
-{'verbose': False, 'random_state': 42, 'min_data_in_leaf': 100, 'loss_function': 'Logloss', 'learning_rate': 0.05, 'iterations': 1000, 'eval_metric': 'AUC', 'depth': 3}
-AUC Score: 0.8160983346550356
------------------------------------------
------------------------------------------
-RCV starts.....
-{'verbose': False, 'random_state': 42, 'min_data_in_leaf': 50, 'loss_function': 'Logloss', 'learning_rate': 0.05, 'iterations': 1000, 'eval_metric': 'AUC', 'depth': 4}
-AUC Score: 0.8006753472666341
------------------------------------------
------------------------------------------
-RCV starts.....
-{'verbose': False, 'random_state': 42, 'min_data_in_leaf': 150, 'loss_function': 'Logloss', 'learning_rate': 0.05, 'iterations': 1000, 'eval_metric': 'AUC', 'depth': 4}
-AUC Score: 0.817024379013072
------------------------------------------
------------------------------------------
-RCV starts.....
-{'verbose': False, 'random_state': 42, 'min_data_in_leaf': 50, 'loss_function': 'Logloss', 'learning_rate': 0.05, 'iterations': 1000, 'eval_metric': 'AUC', 'depth': 4}
-AUC Score: 0.796286374915407
------------------------------------------
------------------------------------------
-RCV starts.....
-{'verbose': False, 'random_state': 42, 'min_data_in_leaf': 100, 'loss_function': 'Logloss', 'learning_rate': 0.1, 'iterations': 1000, 'eval_metric': 'AUC', 'depth': 4}
-AUC Score: 0.8189162377212231
------------------------------------------
------------------------------------------
-RCV starts.....
-{'verbose': False, 'random_state': 42, 'min_data_in_leaf': 200, 'loss_function': 'Logloss', 'learning_rate': 0.1, 'iterations': 1000, 'eval_metric': 'AUC', 'depth': 3}
-AUC Score: 0.8096161536410804
------------------------------------------
------------------------------------------
-RCV starts.....
-{'verbose': False, 'random_state': 42, 'min_data_in_leaf': 100, 'loss_function': 'Logloss', 'learning_rate': 0.1, 'iterations': 1000, 'eval_metric': 'AUC', 'depth': 4}
-AUC Score: 0.808570278694912
------------------------------------------
+#include<bits/stdc++.h>
+using namespace std;
+
+
+
+pair<bool,int> isPossible(string s, unordered_map<char, int> &t, int window){
+
+    unordered_map<char, int> freq;
+
+    for(int i=0; i<s.length(); i++){
+
+        if(i<window){
+            freq[s[i]]++;
+            continue;
+        }
+
+        bool flag = true;
+
+        for(auto entry : t){
+            char ch = entry.first;
+            int occur = entry.second;
+
+            if(freq[ch] < occur){
+                flag = false;
+                break;
+            }
+        }
+
+        if(flag == true) return make_pair(true, i-window+1);
+
+
+
+        freq[s[i]]++;
+        freq[s[i-window]]--;
+    }
+
+
+    return make_pair(false, NULL);
+
+
+}
+
+
+string minSubstring(string s, string t){
+
+    int low = 0, high = s.length();
+    unordered_map<char, int> mp;
+
+    for(char ch : t){
+        mp[ch]++;
+    }
+
+    while(low < high){
+        int mid = (low + high)/2;
+
+        pair<bool, int> present = isPossible(s, mp, mid);
+
+        if(present.first == true){
+            minWindow = min(minWindow, mid);
+            currStartIndex = present.second;
+            high = mid - 1;
+        }else{
+            low = mid+1;
+        }
+    }
+
+}
+
+
+int pow(int base, int power){
+
+    if(power == 1) return base;
+    int result = 1;
+
+    while(power > 1){
+        if(power % 2 == 0) result *= base;
+
+        power /= 2;
+        result *= result;
+    }
+
+    return result;
+}
+
+int main(){
+
+}
