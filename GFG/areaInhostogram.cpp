@@ -53,6 +53,9 @@ int main()
     return 0;
 }
 
+
+
+
 /**********
  * 
  * https://practice.geeksforgeeks.org/problems/maximum-rectangular-area-in-a-histogram/0
@@ -69,3 +72,30 @@ int main()
 3) If the stack is not empty, then one by one remove all bars from stack and do step 2.b for every removed bar.
  * 
  * ********/
+
+
+
+int solve(vector<int> &heights){
+
+    int size = heights.size();
+    vector<int> leftSmaller(size, -1), rightSmaller(size, -1);
+
+    stack<int> s;
+
+    // right smaller
+
+    for(int i=size-1; i>=0; i--){
+
+        while(!s.empty() && heights[s.top()] >= heights[i]){
+            s.pop();
+        }
+
+        if(s.empty()){
+            rightSmaller[i] = size-1;
+        }else{
+            rightSmaller[i] = s.top() - 1;
+        }
+
+        s.push(i);
+    }
+}

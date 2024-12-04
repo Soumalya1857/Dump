@@ -29,6 +29,7 @@ public class Runner {
         /*---------------------------------------------------------------------------------*/
 
         stocksObservable.addStocks(10);
+        stocksObservable.addStocks(20); // no notification triggered
 
     }
 }
