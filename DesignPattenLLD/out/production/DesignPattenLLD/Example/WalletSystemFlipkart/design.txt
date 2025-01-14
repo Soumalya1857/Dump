@@ -1,0 +1,49 @@
+========================
+use Model controller service and repository pattern
+
+=========================
+Flipkart class
+
+User[] userList;
+
+register(username, password);
+deregister(user);
+
+
+========================
+User class
+
+int id;
+string username;
+Wallet wallet; // interface for loose coupling
+
+=========================
+WalletImpl class
+
+id walletId;
+Interger currentAmount;
+
+Transaction[] transactionHistory;
+
+@Transactional
+send(user, amount);
+
+@Transactional
+load(sourceType, amount);
+
+
+showHistory(Compartor<> abc); // sorted based on amount, time(default)
+
+showHistory(Predicate<> abc); // for filtering with send or receive
+
+=========================
+
+Transaction Class
+Id sender;
+Id receiver;
+TimeStamp transactionTmstmp;
+double amount;
+Source sourceType; // credit, debit, UPI
+TransactionType transactionType; // send / receive
+TransactionStatus transactionStatus; // success, falied, pending
+
