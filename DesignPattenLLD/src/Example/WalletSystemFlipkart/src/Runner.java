@@ -14,14 +14,11 @@ import Example.WalletSystemFlipkart.src.service.iservice.IWalletService;
 
 public class Runner {
 
-
-
     public static void main(String[] args) {
         try{
             IUserService userService = new UserServiceImpl();
             IWalletService walletService = new WalletServiceImpl();
             IFlipkartService flipkartService = new FlipkartServiceImpl();
-
 
             Flipkart fkSystem = new Flipkart();
 

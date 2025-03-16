@@ -23,4 +23,4 @@ View Balances
 
 ### Settlement:
 
-Settle Balancesjk
+Settle Balances
