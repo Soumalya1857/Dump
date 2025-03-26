@@ -35,3 +35,46 @@ public:
 };
 
 // https://leetcode.com/problems/binary-tree-maximum-path-sum/
+
+// java
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private int solve(TreeNode root, AtomicInteger res){
+        if(root == null) return 0;
+
+        int left = solve(root.left, res);
+        int right = solve(root.right, res);
+
+        int val = root.val + Math.max(left,0) + Math.max(right,0);
+        res.set(Math.max(res.get(), val));
+
+        return root.val + Math.max(0, Math.max(left, right));
+        
+    }
+
+    public int maxPathSum(TreeNode root) {
+        AtomicInteger res = new AtomicInteger();
+        res.set(Integer.MIN_VALUE);
+
+        int val = solve(root, res);
+
+        return Math.max(val, res.get());
+    }
+}
+
+// https://leetcode.com/problems/binary-tree-maximum-path-sum/submissions/1576110805/
