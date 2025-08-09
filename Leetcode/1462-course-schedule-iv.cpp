@@ -71,7 +71,7 @@ public:
             indegrees[pre[0]]++;
         }
 
-        queue<int> q;
+        queue<int> q; // why??
         for(int i=0; i<numCourses;i++){
             if(indegrees[i] == 0){
                 q.push(i);

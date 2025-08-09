@@ -1,6 +1,7 @@
 class Solution {
 public:
     int tupleSameProduct(vector<int>& nums) {
+
         // 1 tuple 8 possibilities
         // can't go and generate all the possiblities
 

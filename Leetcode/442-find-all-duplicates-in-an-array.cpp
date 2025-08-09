@@ -1,4 +1,5 @@
 class Solution {
+
 private:
     int abso(int n){
         return n < 0 ? -n : n;
